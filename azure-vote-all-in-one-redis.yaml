@@ -57,7 +57,7 @@ spec:
         "kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+        image: geovanniacr.azurecr.io/azuredocs/azure-vote-front:v1 # it was modified to use my acr
         ports:
         - containerPort: 80
         resources:
