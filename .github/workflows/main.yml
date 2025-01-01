@@ -46,6 +46,13 @@ jobs:
       #     branch: master
       #     tag: ${{ github.sha }}
 
+      - name: Log into registry ACR ${{ env.REGISTRY_URL }}
+        uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+        with:
+          registry: ${{ env.REGISTRY_URL }}
+          username: ${{ secrets.service_principal }}
+          password: ${{ secrets.service_principal_password }}
+
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
